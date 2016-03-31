@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inovarti_BoletoBancario>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+
+            </depends>
+        </Inovarti_BoletoBancario>
+    </modules>
+</config>

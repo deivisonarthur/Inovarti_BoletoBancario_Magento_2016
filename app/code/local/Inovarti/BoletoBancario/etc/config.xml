@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inovarti_BoletoBancario>
+            <version>0.1.1</version>
+        </Inovarti_BoletoBancario>
+    </modules>
+    <global>
+        <models>
+            <boletobancario>
+                <class>Inovarti_BoletoBancario_Model</class>
+            </boletobancario>
+        </models>
+        <blocks>
+            <boletobancario>
+                <class>Inovarti_BoletoBancario_Block</class>
+            </boletobancario>
+        </blocks>
+        <helpers>
+            <boletobancario>
+                <class>Inovarti_BoletoBancario_Helper</class>
+            </boletobancario>
+        </helpers>
+        <resources>
+            <boletobancario_setup>
+                <setup>
+                    <module>Inovarti_BoletoBancario</module>
+                </setup>
+            </boletobancario_setup>
+        </resources>
+        <template>
+            <email>
+                <payment_boletobancario_order_expired_email_template translate="label" module="boletobancario">
+                    <label>Template do email Boleto (Expirar)</label>
+                    <file>boletobancario/mail_order_expired.html</file>
+                    <type>html</type>
+                </payment_boletobancario_order_expired_email_template>
+                <payment_boletobancario_order_recovery_email_template translate="label" module="boletobancario">
+                    <label>Template do email Boleto (Recuperar)</label>
+                    <file>boletobancario/mail_order_recovery.html</file>
+                    <type>html</type>
+                </payment_boletobancario_order_recovery_email_template>
+            </email>
+        </template>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+				<args>
+					<modules>
+						<boletobancario before="Mage_Adminhtml">Inovarti_BoletoBancario_Adminhtml</boletobancario>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <sales>
+                            <children>
+                                <payment>
+                                    <children>
+                                        <boletobancario>
+                                            <title>Boleto Bancario</title>
+                                        </boletobancario>
+                                    </children>
+                                </payment>
+                            </children>
+                        </sales>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <boletobancario>
+                        <type>singleton</type>
+                        <class>boletobancario/observer</class>
+                        <method>addSalesOrderGridColumns</method>
+                    </boletobancario>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
+    <frontend>
+        <routers>
+            <boletobancario>
+                <use>standard</use>
+                <args>
+                    <module>Inovarti_BoletoBancario</module>
+                    <frontName>boletobancario</frontName>
+                </args>
+            </boletobancario>
+        </routers>
+    </frontend>
+    <crontab>
+        <jobs>
+            <boletobancario>
+                <schedule>
+                    <cron_expr>0 */4 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>boletobancario/observer::verificaBoletoVencidos</model>
+                </run>
+            </boletobancario>
+        </jobs>
+    </crontab>
+    <default>
+        <payment>
+            <boletobancario>
+                <model>boletobancario/standard</model>
+                <title>Boleto Bancario</title>
+                <order_status>pending</order_status>
+                <allowspecific>1</allowspecific>
+                <specificcountry>BR</specificcountry>
+                <sort_order>1</sort_order>
+            </boletobancario>
+        </payment>
+    </default>
+</config>

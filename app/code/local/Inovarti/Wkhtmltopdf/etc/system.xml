@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <inovarti translate="label" module="affiliate">
+            <label>Inovarti</label>
+            <sort_order>299</sort_order>
+        </inovarti>
+    </tabs>
+    <sections>
+        <wkhtmltopdf translate="label" module="wkhtmltopdf">
+            <label>Wkhtmltopdf</label>
+            <tab>inovarti</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <exec_path translate="label">
+                            <label>Executable Path</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </exec_path>
+                    </fields>
+                </general>
+            </groups>
+        </wkhtmltopdf>
+    </sections>
+</config>

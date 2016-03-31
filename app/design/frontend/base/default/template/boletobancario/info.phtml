@@ -1,0 +1,11 @@
+<div class='boleto-info'>
+    <p><?php echo $this->getMethod()->getTitle(); ?></p>
+    <?php $_order = $this->getInfo()->getOrder(); ?>
+    <?php
+    $dataVencimento 	= $this->getMethod()->getDaysToExpire($_order);
+    $dataAtual 			= Mage::helper('boletobancario')->getDiasUteis(date('Y-m-d', Mage::getModel('core/date')->timestamp(time())));
+    ?>
+    <?php if ($_order->getStatus() == "pending"): ?>
+    <p><a href="<?php echo $this->getBoletoUrl($_order->getId().';'.$_order->getCustomerId(),$_order->getStoreId()); ?>" class="pay-link" target="_blank"><?php echo $this->__("Clique aqui para imprimir o boleto");?></a></p>
+    <?php endif; ?>
+</div>

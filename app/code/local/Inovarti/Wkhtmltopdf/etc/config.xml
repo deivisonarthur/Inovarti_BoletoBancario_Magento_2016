@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inovarti_Wkhtmltopdf>
+            <version>0.1.0</version>
+        </Inovarti_Wkhtmltopdf>
+    </modules>
+    <global>
+        <helpers>
+            <wkhtmltopdf>
+                <class>Inovarti_Wkhtmltopdf_Helper</class>
+            </wkhtmltopdf>
+        </helpers>
+    </global>
+    <default>
+        <wkhtmltopdf>
+            <general>
+                <exec_path>wkhtmltopdf</exec_path>
+            </general>
+        </wkhtmltopdf>
+    </default>
+</config>

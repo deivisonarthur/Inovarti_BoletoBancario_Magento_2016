@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Inovarti_Wkhtmltopdf>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Inovarti_Wkhtmltopdf>
+    </modules>
+</config>

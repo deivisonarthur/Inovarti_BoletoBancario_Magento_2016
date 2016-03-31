@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Inovarti
+ * @package     Inovarti_Pagseguro
+ * @copyright   Copyright (c) 2015 Inovarti. (http://www.inovarti.com.br)
+ */
+-->
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <boletobancario>
+                    <label>Boleto Bancário</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <boleto_bancario_numero translate="label">
+                            <label>Numero Sequencial Boleto</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[<font color=red>ATENÇÃO:Subistituir apenas se ja existe boleto criado.</font>]]></comment>
+                        </boleto_bancario_numero>
+                        <update translate="label">
+                            <comment><![CDATA[Clicando aqui para atualizar seus ID de Boleto Bancario especificados acima (<font color=red>você tem que salvar configuração primeiro!</font>). Números em branco são deixados como estão.<br><b>Nota:</b> Se qualquer um dos números indicados são inferiores aos valores já na base de dados, você verá um erro. Se você está 100% certo que você sabe o que você está fazendo, você pode substituir.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>Inovarti_BoletoBancario_Block_Adminhtml_Update</frontend_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </update>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>New Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_new</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <order_expired_email_template translate="label">
+                            <label>Template do email Boleto (Expirar)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </order_expired_email_template>
+                        <send_email translate="label">
+                            <label>Notificar cliente antes de Expirar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                            <comment><![CDATA[Notifica cliente 1(um) dia antes de expirar?.]]></comment>
+                        </send_email>
+                        <order_auto_cancel translate="label">
+                            <label>Cancelar o Pedido Automaticamente</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>36</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                            <comment><![CDATA[Cancela o pedido após expirar e notifica cliente?.]]></comment>
+                        </order_auto_cancel>
+                        <order_recovery_email_template translate="label">
+                            <label>Template do email Boleto (Recuperar)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </order_recovery_email_template>
+                        <banco translate="label">
+                            <label>Boleto</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>boletobancario/source_banco</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </banco>
+                        <sicob translate="label">
+                            <label>convenio SICOB caixa</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>required-entry</validate>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <banco>104</banco>
+                            </depends>
+                        </sicob>
+                        <instructions translate="label">
+                            <label>Instructions</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </instructions>
+                        <days_to_expire translate="label">
+                            <label>Days to expire</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Days that will be added to expiration date.]]></comment>
+                        </days_to_expire>
+                        <taxvat>
+                            <label>Taxvat</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[CPF ou CNPJ]]></comment>
+                        </taxvat>
+                        <cedente>
+                            <label>Cedente</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Razão Social.]]></comment>
+                            <!--<depends><banco>104</banco></depends>-->
+                        </cedente>
+                        <agencia>
+                            <label>Agência</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </agencia>
+                        <agencia_dv>
+                            <label>Agência Digito Verificador</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </agencia_dv>
+                        <carteira>
+                            <label>Carteira</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </carteira>
+                        <conta>
+                            <label>Conta</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </conta>
+                        <conta_dv>
+                            <label>Conta Digito Verificador</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </conta_dv>
+                        <convenio>
+                            <label>Numero do convenio</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[4, 6 ou 7 dígitos]]></comment>
+                            <depends><banco>1</banco></depends>
+                        </convenio>
+                        <ios>
+                            <label>IOS – Seguradoras</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[IOS – Seguradoras (Se 7% informar 7. Limitado a 9%)<br>Demais clientes usar 0 (zero)]]></comment>
+                            <depends><banco>33</banco></depends>
+                        </ios>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <frontend_class>validate-number</frontend_class>
+                        </sort_order>
+                    </fields>
+                </boletobancario>
+            </groups>
+        </payment>
+    </sections>
+</config>
