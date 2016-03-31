@@ -95,23 +95,23 @@ O link que eu utilizei para instalar o WKHTMLTOPDF não esta mais disponível, e
 <img src="http://f.cl.ly/items/032r1V0w042q3S0V1n0X/Image%202016-03-31%20at%206.48.38%20PM.png" title=“Print da configuração do módulo no Magento” />
 
 **2 - Print da tela de Order com a coluna Número de Pedidos(Boleto) [Precisa adicionar essa coluna no grid]**
-<img src=“http://f.cl.ly/items/0o0v3w392V2z0b053h2u/Image%202016-03-31%20at%207.05.14%20PM.png” title="Print da tela de Order com a coluna Número de Pedidos(Boleto) [Precisa adicionar essa coluna no grid]" />
+<img src="http://f.cl.ly/items/0o0v3w392V2z0b053h2u/Image%202016-03-31%20at%207.05.14%20PM.png" title="Print da tela de Order com a coluna Número de Pedidos(Boleto) [Precisa adicionar essa coluna no grid]" />
 
 **3 - Email para aviso de expiração de 1 dia**
-<img src=“http://f.cl.ly/items/2A2G0038341c3U0y2v0O/Image%202016-03-31%20at%207.04.22%20PM.png” title="Email para aviso de expiração de 1 dia" />
+<img src="http://f.cl.ly/items/2A2G0038341c3U0y2v0O/Image%202016-03-31%20at%207.04.22%20PM.png" title="Email para aviso de expiração de 1 dia" />
 
 **4 - Email para aviso de expiração de 1 dia**
-<img src=“http://f.cl.ly/items/15281j0p2A3a1W0M1j2r/Image%202016-03-31%20at%207.04.46%20PM.png” title="Email para aviso de expiração de 1 dia" />
+<img src="http://f.cl.ly/items/15281j0p2A3a1W0M1j2r/Image%202016-03-31%20at%207.04.46%20PM.png" title="Email para aviso de expiração de 1 dia" />
 
 **5 - Após o cliente clicar em imprimir já com o pedido expirado ele irá adicionar os produtos no carrinho e avisará para refazer a compra, caso o cliente não refaça a compra o carrinho será abandonado (OBS: Não segue módulo de carrinho abandonado)**
-<img src=“http://f.cl.ly/items/0L3G2U0f3Z2Y3o3F2J2e/Image%202016-03-31%20at%207.17.06%20PM.png” title=“Produtos adiconados no carrinho apos expiração“ />
+<img src="http://f.cl.ly/items/0L3G2U0f3Z2Y3o3F2J2e/Image%202016-03-31%20at%207.17.06%20PM.png" title=“Produtos adiconados no carrinho apos expiração“ />
 Exemplo de um link de um boleto expirado, onde adicionará os produto no carrinho automaticamente: bit.ly/1MXcP4r
 
 **6 - Link para impressão do boleto pelo admin**
-<img src=“http://f.cl.ly/items/3I0y1M330z1N0m2W1S3a/Image%202016-03-31%20at%207.17.39%20PM.png” title="Link para impressão do boleto pelo admin" />
+<img src="http://f.cl.ly/items/3I0y1M330z1N0m2W1S3a/Image%202016-03-31%20at%207.17.39%20PM.png" title="Link para impressão do boleto pelo admin" />
 
 **7 - Geração do boleto diretamente em PDF**
-<img src=“http://f.cl.ly/items/301h101A2M0S1N3M0q02/Image%202016-03-31%20at%207.18.20%20PM.png” title="Geração do boleto diretamente em PDF" />
+<img src="http://f.cl.ly/items/301h101A2M0S1N3M0q02/Image%202016-03-31%20at%207.18.20%20PM.png" title="Geração do boleto diretamente em PDF" />
 
 <img src="http://www.inovarti.com.br/osc/atencao2.png" alt="Atenção! Faça sempre backup antes de realizar qualquer modificação! E sempre teste em um ambiente de desenvolvimento!" title="Atenção! Faça sempre backup antes de realizar qualquer modificação! E sempre teste em um ambiente de desenvolvimento!" />
 
