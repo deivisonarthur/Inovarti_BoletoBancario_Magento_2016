@@ -51,7 +51,7 @@ class Inovarti_BoletoBancario_Model_Observer {
 
         $orderCollection = Mage::getModel('sales/order')->getCollection();
         $orderCollection->addAttributeToFilter('status', array('in' => array('pending')));
-        $orderCollection->getSelect()->joinLeft(array('payment_table' => 'sales_flat_order_payment'), "main_table.entity_id = payment_table.parent_id", array("method"), null);
+        $orderCollection->getSelect()->joinLeft(array('payment_table' => $orderCollection->getTable('sales/order_payment')), "main_table.entity_id = payment_table.parent_id", array("method"), null);
         $orderCollection->addAttributeToFilter('payment_table.method', array('in' => array('boletobancario')));
 
         foreach ($orderCollection as $order) {
